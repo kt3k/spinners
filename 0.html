@@ -1,0 +1,50 @@
+<style>
+.loader,
+.loader:before,
+.loader:after {
+  --spinner-size: 10px;
+  --spinner-margin: 10px;
+  --spinner-duration: 1.5s;
+  --spinner-color-start: #888;
+  --spinner-color-end: #fff;
+  border-radius: 50%;
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  animation-fill-mode: both;
+  animation: spinner0 var(--spinner-duration) infinite ease-in-out;
+  box-shadow: 0 var(--spinner-size) 0 0 white;
+}
+.loader {
+  margin: calc(var(--spinner-size) * -1) auto var(--spinner-size);
+  position: relative;
+  animation-delay: calc(var(--spinner-duration) * -0.1);
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: calc(-1 * var(--spinner-size) - var(--spinner-margin));
+  animation-delay: calc(var(--spinner-duration) * -0.2);
+}
+.loader:after {
+  left: calc(var(--spinner-size) + var(--spinner-margin));
+}
+@keyframes spinner0 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 var(--spinner-size) 0 0 var(--spinner-color-start);
+  }
+  40% {
+    box-shadow: 0 var(--spinner-size) 0 0 var(--spinner-color-end);
+  }
+}
+body {
+  background-color: black;
+  margin: 0;
+}
+</style>
+<div class="loader"></div>
